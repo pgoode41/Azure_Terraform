@@ -15,7 +15,7 @@ azureSubscriptionServiceAccount_DIR="/tmp/AzureSA_Info"
 azureSubscriptionServiceAccount_FILE="ServiceAccountInfo.txt"
 azureSubscriptionsSA_FULLPATH="${azureSubscriptionServiceAccount_DIR}/${azureSubscriptionServiceAccount_FILE}"
 logged_in_user=$(who | awk '{print$1}')
-terraform_Variable_File="/home/${logged_in_user}/Documents/Terraform/Azure/terraform.tfvars"
+terraform_Variable_File="/home/${logged_in_user}/Documents/NomadAzure/Azure_Terraform/Azure/Azureterraform.tfvars"
 ############################################################################################################################
 # Script Variable Zone End
 ############################################################################################################################
