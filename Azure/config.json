@@ -1,0 +1,32 @@
+{
+    "Servers": {
+        "mooncake": [
+            {
+            "name": "mooncake",
+            "project": "micromdm-test-v1",
+            "dnszone": "fourtyeightpennies-zone",
+            "domainname": "48pennies.io",
+            "arecord": "mooncake"
+            }
+        ],
+        "fry": [
+            {
+            "name": "fry",
+            "project": "micromdm-test-v1",
+            "dnszone": "fourtyeightpennies-zone",
+            "domainname": "48pennies.io",
+            "arecord": "fry"
+            }
+        ],
+        "nibbler": [
+            {
+            "name": "nibbler",
+            "project": "micromdm-test-v1",
+            "dnszone": "fourtyeightpennies-zone",
+            "domainname": "48pennies.io",
+            "arecord": "nibbler"
+            }
+        ]
+    }
+}
+
