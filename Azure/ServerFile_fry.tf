@@ -6,7 +6,7 @@ resource "azurerm_virtual_machine" "fry" {
     vm_size               = "Standard_DS1_v2"
 
     storage_os_disk {
-        name              = "myosdisk1"
+        name              = "frydisk"
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Standard_LRS"

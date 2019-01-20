@@ -131,6 +131,7 @@ python3 serverDynamo.py
 #This syncs to Provisioner Vars and creates a Json file that matches.
 python3 packer_AzProviderInfo_Generator.py
 
+#Builds and Image for a chef-server.
 packer build -var-file="packer_AzProviderInfo.json" chefServer_Image.json
 
 #Automatically Inits, Plans and Applies Terraform Plan.

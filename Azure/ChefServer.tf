@@ -6,14 +6,14 @@ resource "azurerm_virtual_machine" "chef-server" {
     vm_size               = "Standard_DS1_v2"
 
     storage_os_disk {
-        name              = "myosdisk1"
+        name              = "chefdisk"
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Standard_LRS"
     }
 
     storage_image_reference {
-        id = "/subscriptions/e1104a5e-a351-4717-8fb8-01a888aa18af/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/chef-server-image"
+        id = "/subscriptions/e1104a5e-a351-4717-8fb8-01a888aa18af/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/chef-server-image-test"
     }
 
     os_profile {
