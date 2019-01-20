@@ -23,13 +23,14 @@
     "provisioners": [{
         "type": "file",
         "source": "./ChefServerConfig_Boot.sh",
-        "destination": "/tmp/Chefconfig/ChefServerConfig_Boot.sh"
+        "destination": "/tmp/ChefServerConfig_Boot.sh"
         },
         {
         "type": "shell",
         "inline":[
-            "sudo chmod -R 777 /tmp/Chefconfig",
-            "sudo /tmp/Chefconfig/ChefServerConfig_Boot.sh"
+            "sudo chmod -R 777 /tmp/ChefServerConfig_Boot.sh",
+            "sudo chmod +x /tmp/ChefServerConfig_Boot.sh",
+            "sudo /tmp/ChefServerConfig_Boot.sh"
             ] 
         }]
   }
