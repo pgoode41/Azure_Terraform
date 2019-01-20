@@ -7,3 +7,5 @@
 
 # .tfvars files
 *.tfvars
+
+Azure/SoftwareDEP/chef-server-core_12.18.14-1_amd64.deb

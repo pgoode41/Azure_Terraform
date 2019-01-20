@@ -19,14 +19,18 @@ function chef-Server_Install {
     chefOrg_OrgName='stratushook'
     chefOrg_OrgKeyDirPath="${chefCreds_KeyDirPath}/${chefOrg_OrgName}"
 
+    chef-server_Deb="/home/preston/Documents/Chef-Server-Download/chef-server-core_12.18.14-1_amd64.deb"
+
 
     #Creating Admin Organization Path.
     if [[ ! -d "${chefOrg_OrgKeyDirPath}" ]];then
         mkdir "${chefOrg_OrgKeyDirPath}"
     fi
 
-    #Install Chef-Server From SoftwareDEP Reop.
-    dpkg -i SoftwareDEP/chef-server-core_12.18.14-1_amd64.deb
+    # Install Chef-Server From Local Repo.
+    # We will need to host this file remotely.
+    # Chef Doen't Provide a direct download.
+    dpkg -i ${chef-server_Deb}
     #Start SChef-Server Services.
     chef-server-ctl reconfigure
 
