@@ -13,7 +13,7 @@ resource "azurerm_virtual_machine" "nibbler" {
     }
 
     storage_image_reference {
-        id = "/subscriptions/e1104a5e-a351-4717-8fb8-01a888aa18af/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myPackerImage"
+        id = "/subscriptions/e1104a5e-a351-4717-8fb8-01a888aa18af/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/PackerNodeImage"
     }
 
     os_profile {

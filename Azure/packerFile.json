@@ -9,7 +9,7 @@
 
 
     "managed_image_resource_group_name": "myResourceGroup",
-    "managed_image_name": "myPackerImage",
+    "managed_image_name": "PackerNodeImage",
 
     "os_type": "Linux",
     "image_publisher": "Canonical",

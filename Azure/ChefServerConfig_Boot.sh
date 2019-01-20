@@ -19,7 +19,7 @@ function chef-Server_Install {
     chefOrg_OrgName='stratushook'
     chefOrg_OrgKeyDirPath="${chefCreds_KeyDirPath}/${chefOrg_OrgName}"
 
-    chef-server_Deb="/home/preston/Documents/Chef-Server-Download/chef-server-core_12.18.14-1_amd64.deb"
+    chef-server_Deb='/home/preston/Documents/Chef-Server-Download/chef-server-core_12.18.14-1_amd64.deb'
 
 
     #Creating Admin Organization Path.

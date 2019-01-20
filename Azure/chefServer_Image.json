@@ -10,7 +10,7 @@
   
   
       "managed_image_resource_group_name": "myResourceGroup",
-      "managed_image_name": "chef-server-image",
+      "managed_image_name": "chef-server-image-test",
   
       "os_type": "Linux",
       "image_publisher": "Canonical",
@@ -21,9 +21,16 @@
     }],
 
     "provisioners": [{
+        "type": "file",
+        "source": "./ChefServerConfig_Boot.sh",
+        "destination": "/tmp/Chefconfig/ChefServerConfig_Boot.sh"
+        },
+        {
         "type": "shell",
-        "scripts": "./ChefServerConfig_Boot.sh"
-
-
-    }]
+        "inline":[
+            "sudo chmod -R 777 /tmp/Chefconfig",
+            "sudo /tmp/Chefconfig/ChefServerConfig_Boot.sh"
+            ] 
+        }]
   }
+  
