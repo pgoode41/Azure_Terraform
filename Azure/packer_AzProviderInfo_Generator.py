@@ -3,6 +3,8 @@ import os
 import re
 
 def tfvarsProvParse(tfvarsFilePath, packervarsFilePath):
+    #Parses .tfvars file values to use in packer vars json.
+    #Provide .tfvars file path to parse from and packervars file path to generate.
     with open(tfvarsFilePath, "r") as tfvarsFile:
         contents = tfvarsFile.read()
         split = contents.split('"')
@@ -18,14 +20,12 @@ def tfvarsProvParse(tfvarsFilePath, packervarsFilePath):
     "tenant_id": az_tenant_id,
     "subscription_id": az_subscription_id}
 
-    string = str(json)
-    stringFormatted = string.replace("'", '"')
-    #print(stringFormatted)
+    jsonString = str(json)
+    jsonString_Formatted = jsonString.replace("'", '"')
 
 
     packerJsonFile = open(packervarsFilePath,"w")
-    packerJsonFile.write(stringFormatted)
+    packerJsonFile.write(jsonString_Formatted)
 
-#Parses .tfvars file values to use in packer vars json.
-#Provide .tfvars file path as peram. 
+
 tfvarsProvParse("Azureterraform.tfvars", "packer_AzProviderInfo.json")
