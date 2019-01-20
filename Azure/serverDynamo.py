@@ -20,3 +20,5 @@ for x in servers:
         newText=f.read().replace('@=', serverName)
     with open("ServerFile_"+serverName+".tf","w+") as f:
         f.write(newText)
+
+#Need to pull Subscription ID and add it to Image location, for flexibility. 

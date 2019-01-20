@@ -9,9 +9,9 @@ def tfvarsProvParse(tfvarsFilePath, packervarsFilePath):
         contents = tfvarsFile.read()
         split = contents.split('"')
         az_client_id = split[1]
-        az_client_secret = split[3]
-        az_tenant_id = split[5]
-        az_subscription_id = split[7]
+        az_subscription_id = split[3]
+        az_client_secret = split[5]
+        az_tenant_id = split[7]
 
 
 

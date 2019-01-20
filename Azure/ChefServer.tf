@@ -1,5 +1,5 @@
-resource "azurerm_virtual_machine" "@=" {
-    name                  = "@="
+resource "azurerm_virtual_machine" "chef-server" {
+    name                  = "chef-server"
     location              = "eastus"
     resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
@@ -13,7 +13,7 @@ resource "azurerm_virtual_machine" "@=" {
     }
 
     storage_image_reference {
-        id = "/subscriptions/e1104a5e-a351-4717-8fb8-01a888aa18af/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/PackerNodeImage"
+        id = "/subscriptions/e1104a5e-a351-4717-8fb8-01a888aa18af/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/chef-server-image"
     }
 
     os_profile {

@@ -18,7 +18,7 @@ azureSubscriptionsSA_FULLPATH="${azureSubscriptionServiceAccount_DIR}/${azureSub
 logged_in_user=$(who | awk '{print$1}')
 tf_VariableFile="/home/${logged_in_user}/Documents/NomadAzure/Azure_Terraform/Azure/Azureterraform.tfvars"
 packerFile="/home/${logged_in_user}/Documents/NomadAzure/Azure_Terraform/Azure/packerFile.json"
-#dqStripper=$(sed -e 's/^"//' -e 's/"$//')
+
 
 
 
@@ -91,11 +91,8 @@ function serviceAccount_Store {
 function packerBuildVars {
     #Pulls Azure Subscription vars for packer json to user. 
     packer build \
-        -var "client_id=$(cat ${tf_VariableFile} | grep 'client_id' | awk '{print$3}' | sed -e 's/^"//' -e 's/"$//')" \
-        -var "subscription_id=$(cat ${tf_VariableFile} | grep 'subscription_id' | awk '{print$3}' | sed -e 's/^"//' -e 's/"$//')" \
-        -var "client_secret=$(cat ${tf_VariableFile} | grep 'client_secret' | awk '{print$3}' | sed -e 's/^"//' -e 's/"$//')" \
-        -var "tenant_id=$(cat ${tf_VariableFile} | grep 'tenant_id' | awk '{print$3}' | sed -e 's/^"//' -e 's/"$//')" \
-        ${packerFile}
+    -var-file="packer_AzProviderInfo.json" \
+    ${packerFile}
 }
 
 function terraformAuto {
@@ -125,10 +122,19 @@ if [[ $(az ad sp list --all| grep "${subScriptionFormated}-azvm-serviceaccount-v
 fi
 
 #Execute packerBuildVars() Function.
-#packerBuildVars
-#
+packerBuildVars
+
+#Generates .tf server files
 python3 serverDynamo.py
-#
+
+#Generates Provisioner info for packer to consumer.
+#This syncs to Provisioner Vars and creates a Json file that matches.
+python3 packer_AzProviderInfo_Generator.py
+
+packer build -var-file="packer_AzProviderInfo.json" chefServer_Image.json
+
+#Automatically Inits, Plans and Applies Terraform Plan.
+#Uses tfvars file.
 terraformAuto
 
 ############################################################################################################################

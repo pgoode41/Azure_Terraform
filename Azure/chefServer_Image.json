@@ -10,7 +10,7 @@
   
   
       "managed_image_resource_group_name": "myResourceGroup",
-      "managed_image_name": "ChefServer-Image",
+      "managed_image_name": "chef-server-image",
   
       "os_type": "Linux",
       "image_publisher": "Canonical",
