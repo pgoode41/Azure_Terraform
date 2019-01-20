@@ -1,0 +1,29 @@
+{
+  
+    "builders": [{
+      "type": "azure-arm",
+  
+      "client_id": "{{user `client_id`}}",
+      "client_secret": "{{user `client_secret`}}",
+      "tenant_id": "{{user `tenant_id`}}",
+      "subscription_id": "{{user `subscription_id`}}",
+  
+  
+      "managed_image_resource_group_name": "myResourceGroup",
+      "managed_image_name": "ChefServer-Image",
+  
+      "os_type": "Linux",
+      "image_publisher": "Canonical",
+      "image_offer": "UbuntuServer",
+      "image_sku": "16.04-LTS",
+      "location": "East US",
+      "vm_size": "Standard_A2_v2"
+    }],
+
+    "provisioners": [{
+        "type": "shell",
+        "scripts": "./ChefServerConfig_Boot.sh"
+
+
+    }]
+  }
