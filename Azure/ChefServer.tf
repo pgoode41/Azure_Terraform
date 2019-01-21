@@ -1,8 +1,8 @@
-resource "azurerm_virtual_machine" "chef-server" {
-    name                  = "chef-server"
+resource "azurerm_virtual_machine" "chefServer" {
+    name                  = "chefServer"
     location              = "eastus"
     resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
-    network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
+    network_interface_ids = ["${azurerm_network_interface.chef-serverNIC.id}"]
     vm_size               = "Standard_DS1_v2"
 
     storage_os_disk {

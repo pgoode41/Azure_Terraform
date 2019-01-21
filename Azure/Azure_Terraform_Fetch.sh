@@ -122,7 +122,7 @@ if [[ $(az ad sp list --all| grep "${subScriptionFormated}-azvm-serviceaccount-v
 fi
 
 #Execute packerBuildVars() Function.
-packerBuildVars
+#packerBuildVars
 
 #Generates .tf server files
 python3 serverDynamo.py

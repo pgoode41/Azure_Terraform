@@ -1,5 +1,5 @@
-resource "azurerm_network_interface" "myterraformnic" {
-    name                = "myNIC"
+resource "azurerm_network_interface" "chef-serverNIC" {
+    name                = "chef-serverNIC"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
